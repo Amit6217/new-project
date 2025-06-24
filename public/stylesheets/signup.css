@@ -98,6 +98,10 @@ body {
     margin-bottom: 20px;
 }
 
+.mb-3:last-of-type {
+    margin-bottom: 30px;
+}
+
 .form-label {
     display: block;
     margin-bottom: 8px;
@@ -216,4 +220,4 @@ a:hover {
     .form-container {
         padding: 20px;
     }
-} 
+}
