@@ -1,0 +1,145 @@
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../../assets/images/hero-image-background.jpg');
+    opacity: 0.2;
+}
+
+.hero-image {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.02);
+}
+
+.video-container {
+    background: white;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.video-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.video-container h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+/* Video Container Styles */
+.video-container {
+    background: white;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.video-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.video-container h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+/* ERP Guide Cards */
+.erp-section .card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.erp-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.erp-section .card-body {
+    padding: 1.5rem;
+}
+
+.erp-section .card h3 {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    color: var(--primary-color);
+}
+
+.erp-section .card p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.erp-section .ratio {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.erp-section .btn-primary {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .video-container {
+        margin-bottom: 2rem;
+    }
+
+    .erp-section .card {
+        margin-bottom: 2rem;
+    }
+}
