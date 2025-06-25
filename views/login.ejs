@@ -13,6 +13,13 @@
     <div class="container">
         <div class="login-container">
             <div class="form-container">
+                <% if (error && error.length) { %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <%= error %>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                <% } %>
+
                 <div class="form-header">
                     <h2>Welcome Back!</h2>
                     <p>Please login to your student account</p>

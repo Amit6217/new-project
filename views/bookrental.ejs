@@ -27,15 +27,15 @@
                         <a class="nav-link" href="/marketplace"><i class="fas fa-home"></i> Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/ourproduct"><i
+                        <a class="nav-link active" href="/marketplace/ourproduct"><i
                                 class="fa-solid fa-store"></i>Our Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/bookrental"><i class="fas fa-book icon"></i>Book
+                        <a class="nav-link" href="/marketplace/bookrental"><i class="fas fa-book icon"></i>Book
                             Rentals</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/resell"><i class="fas fa-exchange-alt icon"></i>Resell
+                        <a class="nav-link" href="/marketplace/resell"><i class="fas fa-exchange-alt icon"></i>Resell
                             Items</a>
                     </li>
                 </ul>
@@ -54,9 +54,7 @@
         <div class="filters-section mb-4">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>Available Books</h2>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rentBookModal">
                     <i class="fas fa-book"></i> Rent Book
-                </button>
             </div>
             <div class="row">
                 <div class="col-md-4">
@@ -144,7 +142,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="rentBookForm" class="needs-validation" novalidate>
+                    <form id="rentBookForm" action="/rent-book" method="post" enctype="multipart/form-data">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label for="bookName" class="form-label">Book Name</label>

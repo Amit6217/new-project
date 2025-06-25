@@ -27,15 +27,15 @@
                         <a class="nav-link" href="/marketplace"><i class="fas fa-home"></i> Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/ourproduct"><i
+                        <a class="nav-link active" href="/marketplace/ourproduct"><i
                                 class="fa-solid fa-store"></i>Our Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/bookrental"><i class="fas fa-book icon"></i>Book
+                        <a class="nav-link" href="/marketplace/bookrental"><i class="fas fa-book icon"></i>Book
                             Rentals</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/resell"><i class="fas fa-exchange-alt icon"></i>Resell
+                        <a class="nav-link" href="/marketplace/resell"><i class="fas fa-exchange-alt icon"></i>Resell
                             Items</a>
                     </li>
                 </ul>
@@ -54,9 +54,6 @@
         <div class="filters-section mb-4">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>Resell Items</h2>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sellItemModal">
-                    <i class="fas fa-plus"></i> Sell Item
-                </button>
             </div>
             <div class="row">
                 <div class="col-md-4">
@@ -71,6 +68,12 @@
                     </select>
                 </div>
             </div>
+        </div>
+
+        <div class="mb-3 text-end">
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#sellItemModal">
+                <i class="fas fa-plus"></i> List Your Item
+            </button>
         </div>
 
         <div class="row" id="itemsContainer">
@@ -144,25 +147,25 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="sellItemForm">
+                    <form id="sellItemForm" action="/marketplace/resell" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="itemName" class="form-label">Item Name</label>
-                                <input type="text" class="form-control" id="itemName" required>
+                                <input type="text" class="form-control" id="itemName" name="name" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="itemPrice" class="form-label">Price (₹)</label>
-                                <input type="number" class="form-control" id="itemPrice" required>
+                                <input type="number" class="form-control" id="itemPrice" name="price" required>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="itemDescription" class="form-label">Description</label>
-                            <textarea class="form-control" id="itemDescription" rows="3" required></textarea>
+                            <textarea class="form-control" id="itemDescription" name="description" rows="3" required></textarea>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="itemCondition" class="form-label">Condition</label>
-                                <select class="form-select" id="itemCondition" required>
+                                <select class="form-select" id="itemCondition" name="condition" required>
                                     <option value="">Select Condition</option>
                                     <option value="Excellent">Excellent</option>
                                     <option value="Like New">Like New</option>
@@ -172,7 +175,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="itemCategory" class="form-label">Category</label>
-                                <select class="form-select" id="itemCategory" required>
+                                <select class="form-select" id="itemCategory" name="category" required>
                                     <option value="">Select Category</option>
                                     <option value="Electronics">Electronics</option>
                                     <option value="Books">Books</option>
@@ -183,18 +186,18 @@
                         </div>
                         <div class="mb-3">
                             <label for="itemImages" class="form-label">Upload Images</label>
-                            <input type="file" class="form-control" id="itemImages" accept="image/*" multiple required>
+                            <input type="file" class="form-control" id="itemImages" name="images" accept="image/*" multiple required>
                             <div class="form-text">You can upload up to 4 images</div>
                         </div>
                         <div class="mb-3">
                             <label for="contactNumber" class="form-label">Contact Number</label>
-                            <input type="tel" class="form-control" id="contactNumber" required>
+                            <input type="tel" class="form-control" id="contactNumber" name="contactNumber" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">List Item</button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">List Item</button>
                 </div>
             </div>
         </div>

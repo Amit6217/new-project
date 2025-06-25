@@ -123,4 +123,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 //     // Show success message
 //     alert('Book listed successfully!');
-// } 
+// }
+
+const mongoose = require('mongoose');
+
+const bookRentalSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    author: String,
+    description: String,
+    price: { type: Number, required: true },
+    category: String,
+    imageUrl: { type: String, required: true },
+    contactNumber: String,
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    createdAt: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('BookRental', bookRentalSchema);

@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const UserModel = require('./backend/models/user.js');
 
+const marketplaceRoutes = require('./backend/routes/marketplace.js');
 const { connectDB } = require('./backend/config/db.js');
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -20,59 +21,34 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-    res.render('home');
-});
+// Mount marketplace routes
+app.use('/marketplace', marketplaceRoutes);
 
-app.get('/marketplace', (req, res) => {
-    res.render('marketplace');
-});
-
-app.get('/library', (req, res) => {
-    res.render('library');
-});
+// General routes
+app.get('/', (req, res) => res.render('home'));
+app.get('/library', (req, res) => res.render('library'));
+app.get('/freshersguide', (req, res) => res.render('freshersguide'));
+app.get('/clubs', (req, res) => res.render('clubs'));
 
 
-app.get('/freshersguide', (req, res) => {
-    res.render('freshersguide');
-});
-
-app.get('/clubs', (req, res) => {
-    res.render('clubs');
-});
-
-app.get('/ourproduct', (req, res) => {
-    res.render('ourproduct');
-});
-
-app.get('/bookrental', (req, res) => {
-    res.render('bookrental');
-});
-
-app.get('/resell', (req, res) => {
-    res.render('resell');
-});
-
-app.get('/login', (req, res) => {
-    res.render('login', { error: null });
-});
-
+// Authentication routes
+app.get('/login', (req, res) => res.render('login', { error: null }));
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
     try {
         const user = await UserModel.findOne({ username });
         if (!user) {
-            return res.render('login', { error: 'User not found' });
+            return res.render('login', { error: 'User not found', success: null });
         }
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.render('login', { error: 'Invalid password' });
+            return res.render('login', { error: 'Invalid password', success: null });
         }
         const token = jwt.sign({ id: user._id }, secret, { expiresIn: '1d' });
         res.cookie('token', token, { httpOnly: true });
         res.redirect('/');
     } catch (err) {
-        res.render('login', { error: 'Error during login. Try again.' });
+        res.render('login', { error: 'Error during login. Try again.', success: null });
     }
 });
 
@@ -103,7 +79,17 @@ app.post('/signup', async (req, res) => {
     }
 });
 
+//error handling
+app.use((req, res) => {
+    res.status(404).render('error', { err: { message: 'Page not found' } });
+});
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+    const { statusCode = 500 } = err;
+    if (!err.message) err.message = 'Something went wrong!';
+    res.status(statusCode).render('error', { err });
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
