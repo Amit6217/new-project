@@ -14,77 +14,83 @@
         <div class="signup-container">
             <div class="form-container">
                 <% if (error && error.length) { %>
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <%= error %>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <%= error %>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                    </div>
                     <% } %>
-                    <% if (success && success.length) { %>
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <%= success %>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    <% } %>
-                <div class="form-header">
-                    <h2>Create an Account</h2>
-                    <p>Please fill in the details to create an account</p>
-                </div>
-                <form id="signupForm" action="/signup" method="post">
-                    <div class="input-group">
-                        <i class="fas fa-user"></i>
-                        <input type="text" id="email" name="email" placeholder="Email" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-user"></i>
-                        <input type="text" id="username" name="username" placeholder="Username" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" id="password" name="password" placeholder="Password" required>
-                        <i class="fas fa-eye-slash toggle-password"></i>
-                    </div>
-                    <div class="mb-3">
-                        <label for="department" class="form-label">Department</label>
-                        <select class="form-select" id="department" name="department" required>
-                            <option value="">Select Department</option>
-                            <option value="CSE">CSE</option>
-                            <option value="ECE">ECE</option>
-                            <option value="ME">ME</option>
-                            <option value="CE">CE</option>
-                            <option value="EE">EE</option>
-                            <option value="IT">IT</option>
-                            <option value="Others">Others</option>
-                        </select>
-                        <div class="invalid-feedback">Please select your department.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="year" class="form-label">Year</label>
-                        <select class="form-select" id="year" name="year" required>
-                            <option value="">Select Year</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
-                            <option value="2017">2017</option>
-                            <option value="2018">2018</option>
-                            <option value="2019">2019</option>
-                            <option value="2020">2020</option>
-                            <option value="2021">2021</option>
-                            <option value="2022">2022</option>
-                            <option value="2023">2023</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                        </select>
-                        <div class="invalid-feedback">Please select your year.</div>
-                    </div>
+                        <% if (success && success.length) { %>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <%= success %>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                            </div>
+                            <% } %>
+                                <div class="form-header">
+                                    <h2>Create an Account</h2>
+                                    <p>Please fill in the details to create an account</p>
+                                </div>
+                                <form id="signupForm" action="/signup" method="post">
+                                    <div class="input-group">
+                                        <i class="fas fa-user"></i>
+                                        <input type="text" id="email" name="email" placeholder="Email" required>
+                                        <div class="invalid-feedback">Please enter a valid MNIT email address.</div>
+                                    </div>
+                                    <div class="input-group">
+                                        <i class="fas fa-user"></i>
+                                        <input type="text" id="username" name="username" placeholder="Student Id"
+                                            required>
+                                        <div class="invalid-feedback">Incorrect Student Id</div>
+                                    </div>
+                                    <div class="input-group">
+                                        <i class="fas fa-lock"></i>
+                                        <input type="password" id="password" name="password" placeholder="Password"
+                                            required>
+                                        <i class="fas fa-eye-slash toggle-password"></i>
+                                        <div class="invalid-feedback">Please enter a password.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="department" class="form-label">Department</label>
+                                        <select class="form-select" id="department" name="department" required>
+                                            <option value="">Select Department</option>
+                                            <option value="CSE">CSE</option>
+                                            <option value="ECE">ECE</option>
+                                            <option value="ME">ME</option>
+                                            <option value="CE">CE</option>
+                                            <option value="EE">EE</option>
+                                            <option value="IT">IT</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                        <div class="invalid-feedback">Please select your department.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="year" class="form-label">Year</label>
+                                        <select class="form-select" id="year" name="year" required>
+                                            <option value="">Select Year</option>
+                                            <option value="2015">2015</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                        </select>
+                                        <div class="invalid-feedback">Please select your year.</div>
+                                    </div>
 
-                    <button type="submit" class="btn btn-primary w-100">Register</button>
-                </form>
-                <div class="text-center mt-3">
-                    <p>Already have an account? <a href="/login">Login</a></p>
-                </div>
+                                    <button type="submit" class="btn btn-primary w-100">Register</button>
+                                </form>
+                                <div class="text-center mt-3">
+                                    <p>Already have an account? <a href="/login">Login</a></p>
+                                </div>
             </div>
         </div>
     </div>
-    <script src="/javascripts/signup.js" ></script>
+    <script src="/javascripts/signup.js"></script>
 </body>
 
 </html>

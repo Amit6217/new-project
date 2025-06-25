@@ -13,7 +13,7 @@ function isLoggedIn(req, res, next) {
 }
 
 router.get('/', (req, res) => {
-    res.render('marketplace');
+    res.render('marketplace', { isAuthenticated: req.isAuthenticated, user: req.user || null });
 });
 
 router.get('/ourproduct', (req, res) => res.render('ourproduct'));

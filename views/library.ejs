@@ -13,11 +13,11 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="../">
                 <img src="/images/mnitj-logo.webp" alt="MNIT Logo" class="nav-logo" loading="eager">
-                Academic Library
+                MNIT Hub
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -25,12 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">
-                            <i class="fas fa-home"></i> Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/library">
+                        <a class="nav-link" href="/library">
                             <i class="fas fa-book"></i> Library
                         </a>
                     </li>
@@ -45,11 +40,30 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/clubs">
-                            <i class="fas fa-running"></i> Clubs & Sports
+                        <a class="nav-link" href="../#explore-section">
+                            <i class="fas fa-map-marked-alt"></i> Explore Jaipur
                         </a>
                     </li>
                 </ul>
+                <% if(isAuthenticated) { %>
+                <div class="nav-buttons">
+                    <a href="/profile" class="login-btn">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                    <a href="/logout" class="login-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+                <% } else { %>
+                <div class="nav-buttons">
+                    <a href="/login" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                    <a href="/signup" class="login-btn">
+                        <i class="fas fa-user-plus"></i> Sign Up
+                    </a>
+                </div>
+                <% } %>
             </div>
         </div>
     </nav>

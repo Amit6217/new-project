@@ -39,16 +39,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/clubs">
-                            <i class="fas fa-running"></i> Clubs & Sports
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#explore-section">
                             <i class="fas fa-map-marked-alt"></i> Explore Jaipur
                         </a>
                     </li>
                 </ul>
+                <% if(isAuthenticated) { %>
+                <div class="nav-buttons">
+                    <a href="/profile" class="login-btn">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                    <a href="/logout" class="login-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+                <% } else { %>
                 <div class="nav-buttons">
                     <a href="/login" class="login-btn">
                         <i class="fas fa-sign-in-alt"></i> Login
@@ -57,6 +62,7 @@
                         <i class="fas fa-user-plus"></i> Sign Up
                     </a>
                 </div>
+                <% } %>
             </div>
         </div>
     </nav>
@@ -93,8 +99,7 @@
         <div class="container">
             <div class="row g-4 justify-content-center">
                 <div class="col-md-3">
-                    <a href="/library" class="feature-card-link" target="_blank"
-                        rel="noopener noreferrer">
+                    <a href="/library" class="feature-card-link" target="_blank" rel="noopener noreferrer">
                         <div class="feature-card modern-card">
                             <div class="feature-icon"><i class="fas fa-book"></i></div>
                             <h3>Library</h3>
@@ -103,8 +108,7 @@
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="/marketplace" class="feature-card-link" target="_blank"
-                        rel="noopener noreferrer">
+                    <a href="/marketplace" class="feature-card-link" target="_blank" rel="noopener noreferrer">
                         <div class="feature-card modern-card">
                             <div class="feature-icon"><i class="fas fa-shopping-basket"></i></div>
                             <h3>Marketplace</h3>
@@ -113,8 +117,7 @@
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="/freshersguide" class="feature-card-link" target="_blank"
-                        rel="noopener noreferrer">
+                    <a href="/freshersguide" class="feature-card-link" target="_blank" rel="noopener noreferrer">
                         <div class="feature-card modern-card">
                             <div class="feature-icon"><i class="fas fa-user-graduate"></i></div>
                             <h3>Freshers Zone</h3>
@@ -123,8 +126,7 @@
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="/clubs" class="feature-card-link" target="_blank"
-                        rel="noopener noreferrer">
+                    <a href="/clubs" class="feature-card-link" target="_blank" rel="noopener noreferrer">
                         <div class="feature-card modern-card">
                             <div class="feature-icon"><i class="fas fa-trophy"></i></div>
                             <h3>Clubs & Sports</h3>
@@ -188,8 +190,8 @@
                         <div class="col-md-4">
                             <div class="location-point">
                                 <div class="location-card">
-                                    <img src="/images/jantar-mantar.webp" alt="Jantar Mantar"
-                                        class="location-image" loading="lazy">
+                                    <img src="/images/jantar-mantar.webp" alt="Jantar Mantar" class="location-image"
+                                        loading="lazy">
                                     <h3 class="location-title">Jantar Mantar</h3>
                                     <p class="location-description">World's largest stone astronomical observatory with
                                         19 architectural instruments.</p>
@@ -201,8 +203,8 @@
                         <div class="col-md-4">
                             <div class="location-point">
                                 <div class="location-card">
-                                    <img src="/images/nahargarh-fort.jpg" alt="Nahargarh Fort"
-                                        class="location-image" loading="lazy">
+                                    <img src="/images/nahargarh-fort.jpg" alt="Nahargarh Fort" class="location-image"
+                                        loading="lazy">
                                     <h3 class="location-title">Nahargarh Fort</h3>
                                     <p class="location-description">Overlooking the Pink City, offering panoramic views
                                         and stunning sunset vistas.</p>
@@ -242,8 +244,8 @@
                         <div class="col-md-4">
                             <div class="location-point">
                                 <div class="location-card">
-                                    <img src="/images/birla-mandir.webp" alt="Birla Mandir"
-                                        class="location-image" loading="lazy">
+                                    <img src="/images/birla-mandir.webp" alt="Birla Mandir" class="location-image"
+                                        loading="lazy">
                                     <h3 class="location-title">Birla Mandir</h3>
                                     <p class="location-description">A beautiful white marble temple dedicated to Lord
                                         Vishnu and Goddess Lakshmi.</p>
@@ -255,8 +257,8 @@
                         <div class="col-md-4">
                             <div class="location-point">
                                 <div class="location-card">
-                                    <img src="/images/sambhar-lake.avif" alt="Sambhar Lake"
-                                        class="location-image" loading="lazy">
+                                    <img src="/images/sambhar-lake.avif" alt="Sambhar Lake" class="location-image"
+                                        loading="lazy">
                                     <h3 class="location-title">Sambhar Lake</h3>
                                     <p class="location-description">India's largest inland salt lake, famous for
                                         flamingos and salt production.</p>
@@ -310,16 +312,16 @@
 
     <!-- Chatbot Icon -->
     <div id="chatbot-icon" title="Chat with us">
-    <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
-        <circle cx="24" cy="24" r="22" fill="#1976d2" stroke="#fff" stroke-width="2"/>
-        <ellipse cx="24" cy="28" rx="12" ry="8" fill="#fff"/>
-        <ellipse cx="18" cy="27" rx="2.5" ry="3" fill="#1976d2"/>
-        <ellipse cx="30" cy="27" rx="2.5" ry="3" fill="#1976d2"/>
-        <rect x="20" y="32" width="8" height="2" rx="1" fill="#1976d2"/>
-        <rect x="22.5" y="10" width="3" height="7" rx="1.5" fill="#fff"/>
-        <circle cx="24" cy="9" r="2" fill="#1976d2" stroke="#fff" stroke-width="1"/>
-    </svg>
-</div>
+        <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="22" fill="#1976d2" stroke="#fff" stroke-width="2" />
+            <ellipse cx="24" cy="28" rx="12" ry="8" fill="#fff" />
+            <ellipse cx="18" cy="27" rx="2.5" ry="3" fill="#1976d2" />
+            <ellipse cx="30" cy="27" rx="2.5" ry="3" fill="#1976d2" />
+            <rect x="20" y="32" width="8" height="2" rx="1" fill="#1976d2" />
+            <rect x="22.5" y="10" width="3" height="7" rx="1.5" fill="#fff" />
+            <circle cx="24" cy="9" r="2" fill="#1976d2" stroke="#fff" stroke-width="1" />
+        </svg>
+    </div>
     <!-- Chatbot Floating Window -->
     <div id="chatbot-window">
         <div id="chatbot-header">
